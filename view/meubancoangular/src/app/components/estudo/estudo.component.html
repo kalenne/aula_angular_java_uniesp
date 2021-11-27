@@ -1,0 +1,9 @@
+<div>
+  {{ exibindo }}
+  <h3 class="text-success">Exibindo</h3>
+  <h3 class="text-warning">Não exibindo</h3>
+
+  <div *ngIf="exibindo" class="alert alert-primary" role="alert">
+    {{ exibirTextoAlerta }}
+  </div>
+</div>

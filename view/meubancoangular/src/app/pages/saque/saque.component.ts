@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SaqueComponent implements OnInit {
 
+  statusCheckbox: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  checkboxMarcado(event:any){
+    this.statusCheckbox = event;
   }
 
 }
