@@ -1,0 +1,24 @@
+<h1>Cadastrar</h1>
+<form [formGroup]="formCliente">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Nome</label>
+    <input type="text" class="form-control" formControlName="nome">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email</label>
+    <input type="email" class="form-control" formControlName="email">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">CPF</label>
+    <input type="text" class="form-control" formControlName="cpf">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Observação</label>
+    <textarea type="text" class="form-control" formControlName="descricao"></textarea>
+  </div>
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1" formControlName="checkbox">
+    <label class="form-check-label" for="exampleCheck1">Aceito os dados</label>
+  </div>
+</form>
+<button type="button" class="btn btn-primary" (click)="salvarDados()" [disabled]="formCliente.invalid">Cadastrar</button>
