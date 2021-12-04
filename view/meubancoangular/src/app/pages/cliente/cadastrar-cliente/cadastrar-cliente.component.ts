@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ICliente } from 'src/app/interfaces/cliente';
 import { ClienteService } from 'src/app/services/cliente.service';
 
@@ -9,6 +9,7 @@ import { ClienteService } from 'src/app/services/cliente.service';
   styleUrls: ['./cadastrar-cliente.component.css']
 })
 export class CadastrarClienteComponent implements OnInit {
+
 
   formCliente: FormGroup;
 
@@ -43,5 +44,7 @@ export class CadastrarClienteComponent implements OnInit {
     })
     // alert(`Meu nome é ${alerta.nome}\n Meu e-mail é ${alerta.email}\n Meu cpf é ${alerta.cpf} \n A observação é ${alerta.descricao}\n E os termos estão: ${alerta.checkbox}`);
   }
+
+
 
 }

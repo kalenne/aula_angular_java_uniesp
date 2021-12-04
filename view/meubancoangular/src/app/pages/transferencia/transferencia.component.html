@@ -1,0 +1,44 @@
+<h1 class="my-3">Transferência</h1>
+
+<form [formGroup]="formGroup">
+  <div class="row">
+    <div class="col">
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Agência de Origem</label>
+        <input class="form-control" type="text" aria-label="default input example" formControlName="agenciaOrigem">
+      </div>
+    </div>
+    <div class="col">
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Número da Conta de Origem</label>
+        <input class="form-control" type="text" aria-label="default input example" formControlName="numeroContaOrigem">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Agência de Destino</label>
+        <input class="form-control" type="text" aria-label="default input example" formControlName="agenciaDestino">
+      </div>
+    </div>
+    <div class="col">
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Número da Conta de Destino</label>
+        <input class="form-control" type="text" aria-label="default input example" formControlName="numeroContaDestino">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Valor</label>
+        <input class="form-control" type="text" aria-label="default input example" formControlName="valor">
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-primary" (click)="enviarDados()">Enviar</button>
+</form>
+<div *ngIf="loading" class="spinner-border my-4" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>

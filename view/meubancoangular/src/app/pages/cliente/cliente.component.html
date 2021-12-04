@@ -1,10 +1,19 @@
 <!-- <p *ngIf="!cliente.length" class="mt-2">
   Loading...
 </p> -->
-<div class="mt-2">
-  <app-button label="Cadastrar" routerLink="/cliente/cadastrar"></app-button>
+<div class="row">
+  <div class="col-6">
+    <div class="mt-2">
+      <app-button label="Cadastrar" routerLink="/cliente/cadastrar"></app-button>
+    </div>
+  </div>
+  <div class="col-6 ">
+    <form class="d-flex mt-2">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Buscar</button>
+    </form>
+  </div>
 </div>
-
 
 <div *ngIf="!cliente.length" class="spinner-border my-4" role="status">
   <span class="visually-hidden">Loading...</span>
@@ -16,23 +25,27 @@
     <tr>
       <th scope="col">ID</th>
       <th scope="col">Nome</th>
-      <th scope="col">E-mail</th>
       <th scope="col">CPF</th>
+      <th scope="col">E-mail</th>
       <th scope="col">Observação</th>
       <th scope="col">Ativo</th>
+      <th scope="col">Ações</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let cl of cliente"> <!-- para mostrar a lista de clientes -->
       <td>{{ cl.id }}</td>
       <td>{{ cl.nome }}</td>
+      <td width="200">{{ helper.maskCpf(cl.cpf) }}</td>
       <td>{{ cl.email }}</td>
-      <td>{{ helper.maskCpf(cl.cpf) }}</td>
       <td>{{ cl.observacoes }}</td>
       <!-- <td>{{ cl.ativo ? 'Ativo' : 'Desativado'}}</td> condição ternária -->
       <td>
         <i *ngIf="cl.ativo" class="fas fa-thumbs-up text-success"></i>
         <i *ngIf="!cl.ativo" class="fas fa-thumbs-down text-danger"></i>
+      </td>
+      <td>
+        <a class="btn btn-danger btn-sm" (click)="confirmar(cl.id!)">Remover</a>
       </td>
     </tr>
   </tbody>

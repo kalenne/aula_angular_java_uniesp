@@ -1,0 +1,26 @@
+<h1 class="mt-2">Cadastro de Clientes</h1>
+<hr>
+
+<form [formGroup]="formGroup" (ngSubmit)="enviar()">
+  <div class="mb-3">
+    <label>Nome</label>
+    <input type="text" class="form-control" formControlName="nome">
+  </div>
+  <div class="mb-3">
+    <label>CPF</label>
+    <input type="text" class="form-control" formControlName="cpf">
+  </div>
+  <div class="mb-3">
+    <label>E-mail</label>
+    <input type="text" class="form-control" formControlName="email">
+  </div>
+  <div class="mb-3">
+    <label>Observações</label>
+    <input type="text" class="form-control" formControlName="observacoes">
+  </div>
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1" formControlName="ativo">
+    <label class="form-check-label" for="exampleCheck1">Aceito os termos de uso.</label>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="!formGroup.valid">Enviar</button>
+</form>
