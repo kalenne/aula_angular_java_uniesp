@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ICliente } from 'src/app/interfaces/cliente';
+import { ClienteService } from 'src/app/services/cliente.service';
 
 @Component({
   selector: 'app-cadastrar-cliente',
@@ -12,6 +14,7 @@ export class CadastrarClienteComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
+    private clienteService: ClienteService
   ) {
     this.formCliente = this.fb.group({
       nome: this.fb.control("", [Validators.required]),
@@ -28,9 +31,17 @@ export class CadastrarClienteComponent implements OnInit {
 
   salvarDados() {
     const alerta = this.formCliente.value;
-    alert(`Meu nome é ${alerta.nome}\n Meu e-mail é ${alerta.email}\n Meu cpf é ${alerta.cpf} \n A observação é ${alerta.descricao}\n E os termos estão: ${alerta.checkbox}`);
+    const request: ICliente =  {
+      nome: alerta.nome,
+      email: alerta.email,
+      cpf: alerta.cpf,
+      observacoes: alerta.descricao,
+      ativo: alerta.checkbox
+    }
+    this.clienteService.cadastrarCliente(request).subscribe(clienteCadastrado => {
+      console.log(clienteCadastrado);
+    })
+    // alert(`Meu nome é ${alerta.nome}\n Meu e-mail é ${alerta.email}\n Meu cpf é ${alerta.cpf} \n A observação é ${alerta.descricao}\n E os termos estão: ${alerta.checkbox}`);
   }
-  // atualizarDados(){
-  //   this.formCliente.controls.nome.patchValue("");
-  // }
+
 }

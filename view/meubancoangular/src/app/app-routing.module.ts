@@ -2,6 +2,7 @@ import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CadastrarClienteComponent } from './pages/cliente/cadastrar-cliente/cadastrar-cliente.component';
 import { ClienteComponent } from './pages/cliente/cliente.component';
+import { ContaComponent } from './pages/conta/conta.component';
 import { DepositoComponent } from './pages/deposito/deposito.component';
 import { ExtratoComponent } from './pages/extrato/extrato.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -14,6 +15,7 @@ const routes: Routes = [
  {path: 'deposito', component: DepositoComponent},
  {path: 'cliente', component: ClienteComponent},
  {path: 'cliente/cadastrar', component: CadastrarClienteComponent},
+ {path: 'conta', component: ContaComponent },
  {path: '**', component: HomeComponent, pathMatch: 'full' /*sempre sendo o ultimo e rediciona para pagina inicial uma rota não existente*/}
 ];
 

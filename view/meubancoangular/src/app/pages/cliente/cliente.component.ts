@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ICliente } from 'src/app/interfaces/cliente';
+import { ClienteService } from 'src/app/services/cliente.service';
+import { Helper } from 'src/shared/helpers/helper';
 
 @Component({
   selector: 'app-cliente',
@@ -7,9 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClienteComponent implements OnInit {
 
-  constructor() { }
+  cliente: ICliente[] = [];
+  helper = new Helper();
+
+  constructor(
+    private clientService: ClienteService
+  ) { }
 
   ngOnInit(): void {
+    this.listarTodosClientes();
   }
 
+  listarTodosClientes() {
+    this.clientService.listarTodosCliente().subscribe(clienteApi => {
+      this.cliente = clienteApi;
+    } )
+  }
 }

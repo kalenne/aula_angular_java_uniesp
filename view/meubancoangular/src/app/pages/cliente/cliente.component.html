@@ -1,31 +1,41 @@
-<table class="table">
+<!-- <p *ngIf="!cliente.length" class="mt-2">
+  Loading...
+</p> -->
+<div class="mt-2">
+  <app-button label="Cadastrar" routerLink="/cliente/cadastrar"></app-button>
+</div>
+
+
+<div *ngIf="!cliente.length" class="spinner-border my-4" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<br>
+
+<table *ngIf="cliente.length" class="table">
   <thead>
     <tr>
+      <th scope="col">ID</th>
       <th scope="col">Nome</th>
-      <th scope="col">Email</th>
+      <th scope="col">E-mail</th>
       <th scope="col">CPF</th>
       <th scope="col">Observação</th>
+      <th scope="col">Ativo</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>Mark</td>
-      <td>Otto@gmail.com</td>
-      <td>@mdo</td>
-      <td>É bonito</td>
-    </tr>
-    <tr>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-      <td>É feio</td>
-    </tr>
-    <tr>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-      <td>Tuiter</td>
+    <tr *ngFor="let cl of cliente"> <!-- para mostrar a lista de clientes -->
+      <td>{{ cl.id }}</td>
+      <td>{{ cl.nome }}</td>
+      <td>{{ cl.email }}</td>
+      <td>{{ helper.maskCpf(cl.cpf) }}</td>
+      <td>{{ cl.observacoes }}</td>
+      <!-- <td>{{ cl.ativo ? 'Ativo' : 'Desativado'}}</td> condição ternária -->
+      <td>
+        <i *ngIf="cl.ativo" class="fas fa-thumbs-up text-success"></i>
+        <i *ngIf="!cl.ativo" class="fas fa-thumbs-down text-danger"></i>
+      </td>
     </tr>
   </tbody>
 </table>
 
-<app-button label="Cadastrar" routerLink="/cliente/cadastrar"></app-button>
+
