@@ -1,1 +1,98 @@
-<p>cadastrar-conta works!</p>
+<form [formGroup]="formGroup">
+  <div class="card card-body my-3">
+    <legend class="my-3">Dados da Conta</legend>
+    <div class="row">
+      <div class="col">
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label"
+            >Agência</label>
+          <input
+            class="form-control"
+            type="text"
+            aria-label="default input example" formControlName="agencia"
+          />
+        </div>
+      </div>
+      <div class="col">
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label"
+            >Número da Conta</label
+          >
+          <input
+            class="form-control"
+            type="text"
+            aria-label="default input example" formControlName="numero"
+          />
+        </div>
+      </div>
+      <div class="col">
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Saldo</label>
+          <input
+            class="form-control"
+            type="text"
+            aria-label="default input example" formControlName="saldo"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card card-body my-3" formGroupName="cliente">
+    <legend class="my-3">Dados do Cliente</legend>
+    <div class="row">
+      <div class="col">
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label"
+            >Nome</label>
+          <input
+            class="form-control"
+            type="text"
+            aria-label="default input example" formControlName="nome"
+          />
+        </div>
+      </div>
+      <div class="col">
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label"
+            >CPF</label
+          >
+          <input
+            class="form-control"
+            type="text"
+            aria-label="default input example" formControlName="cpf"
+          />
+        </div>
+      </div>
+      <div class="col">
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Email</label>
+          <input
+            class="form-control"
+            type="text"
+            aria-label="default input example" formControlName="email"
+          />
+        </div>
+      </div>
+      <!-- <div class="col-12">
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Observação</label>
+          <textarea
+            class="form-control"
+            type="text"
+            aria-label="default input example" formControlName="cliente.observacoes"
+          ></textarea>
+        </div>
+      </div>
+      <div class="mb-3 form-check ms-3">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" formControlName="cliente.ativo">
+        <label class="form-check-label" for="exampleCheck1">Aceito os termos de uso.</label>
+      </div> -->
+    </div>
+  </div>
+</form>
+
+<button class="btn btn-primary" (click)="enviarDados()">Enviar</button>
+
+<div *ngIf="loading" class="spinner-border my-4" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
