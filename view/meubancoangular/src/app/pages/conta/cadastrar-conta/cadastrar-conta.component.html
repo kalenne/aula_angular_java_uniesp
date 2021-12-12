@@ -40,6 +40,11 @@
   <div class="card card-body my-3" formGroupName="cliente">
     <legend class="my-3">Dados do Cliente</legend>
     <div class="row">
+      <label for="exampleFormControlInput1" class="form-label">CPF</label>
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" formControlName="cpf">
+        <span class="input-group-text"><a (click)="buscarCpf(formGroup.value.cliente.cpf)"><i class="fas fa-search"></i></a></span>
+      </div>
       <div class="col">
         <div class="mb-3">
           <label for="exampleFormControlInput1" class="form-label"
@@ -51,42 +56,6 @@
           />
         </div>
       </div>
-      <div class="col">
-        <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label"
-            >CPF</label
-          >
-          <input
-            class="form-control"
-            type="text"
-            aria-label="default input example" formControlName="cpf"
-          />
-        </div>
-      </div>
-      <div class="col">
-        <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label">Email</label>
-          <input
-            class="form-control"
-            type="text"
-            aria-label="default input example" formControlName="email"
-          />
-        </div>
-      </div>
-      <!-- <div class="col-12">
-        <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label">Observação</label>
-          <textarea
-            class="form-control"
-            type="text"
-            aria-label="default input example" formControlName="cliente.observacoes"
-          ></textarea>
-        </div>
-      </div>
-      <div class="mb-3 form-check ms-3">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1" formControlName="cliente.ativo">
-        <label class="form-check-label" for="exampleCheck1">Aceito os termos de uso.</label>
-      </div> -->
     </div>
   </div>
 </form>

@@ -28,4 +28,8 @@ export class ClienteService {
   remover(id: number){
     return this.http.delete(`${this.api}/${id}`);
   }
+
+  buscarcpf (cpf: string) {
+    return this.http.get<ICliente>(`${this.api}/buscarPorCpf/${cpf}`);
+  }
 }

@@ -30,7 +30,6 @@ export class TransferenciaComponent implements OnInit {
   }
 
   enviarDados(){
-    // const formGroup = this.formGroup.value;
     this.loading = true;
     const request: IContaTransferencia = this.formGroup.value as IContaTransferencia
     this.contaservice.transferencia(request).subscribe(valor=>{
