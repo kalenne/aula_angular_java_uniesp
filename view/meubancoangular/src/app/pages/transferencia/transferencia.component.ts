@@ -12,11 +12,12 @@ import { ContaComponent } from '../conta/conta.component';
   styleUrls: ['./transferencia.component.css']
 })
 export class TransferenciaComponent implements OnInit {
-
+  // Declaração de formulários
   formGroup: FormGroup;
   loading = false;
 
   constructor(private fb: FormBuilder, private contaservice: ContaServiceService, private router: Router) {
+    // Inicilização do formulário
     this.formGroup = this.fb.group({
       agenciaDestino: this.fb.control('', Validators.required),
       numeroContaDestino: this.fb.control('', Validators.required),
@@ -31,6 +32,7 @@ export class TransferenciaComponent implements OnInit {
 
   enviarDados(){
     this.loading = true;
+    //como possuem o mesmo nome da dados, pode ser colocado dessa forma
     const request: IContaTransferencia = this.formGroup.value as IContaTransferencia
     this.contaservice.transferencia(request).subscribe(valor=>{
       this.loading = false;

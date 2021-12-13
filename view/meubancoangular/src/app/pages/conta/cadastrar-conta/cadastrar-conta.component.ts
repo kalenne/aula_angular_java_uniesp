@@ -24,15 +24,12 @@ export class CadastrarContaComponent implements OnInit {
     private clienteService: ClienteService) {
     this.formGroup = this.fb.group({
       agencia: this.fb.control(''),
-      numero: this.fb.control('', ),
-      saldo: this.fb.control('',),
+      numero: this.fb.control(''),
+      saldo: this.fb.control(''),
       cliente: this.fb.group({
         id: this.fb.control(''),
         cpf: this.fb.control(''),
         nome: this.fb.control({value: '', disabled: true}),
-        email: this.fb.control({value: '', disabled: true}),
-        observacoes: this.fb.control({value: '', disabled: true}),
-        ativo: this.fb.control({value: '', disabled: true})
       })
     })
    }
@@ -43,14 +40,16 @@ export class CadastrarContaComponent implements OnInit {
   enviarDados(){
     this.loading = true;
     const formGroup =  this.formGroup.value;
+
+    // cópia do objeto que pode ser alterado, já que o saldo estava sendo enviado como string.
     const request: IConta = {
-      ...this.formGroup.value,
-      saldo: Number(this.formGroup.value.saldo)
+      ...formGroup,
+      saldo: Number(formGroup.saldo)
     }
 
     this.contaservice.cadastrar(request).subscribe(valor => {
       this.loading = false;
-      Swal.fire('Feito', 'Transferência realizado com sucesso!', 'success');
+      Swal.fire('Feito', 'Conta criada com sucesso!', 'success');
       this.router.navigate(['/conta'])
     })
   }

@@ -18,6 +18,7 @@ export class ContaServiceService {
     return this.http.get<IConta[]>(this.api);
   }
 
+  // Chamada do serviço de saque (post) utilizando o parâmetro do tipo ISaqueDeposito.
   saque(saque: ISaqueDeposito){
     return this.http.post(`${this.api}/saque`, saque);
   }
