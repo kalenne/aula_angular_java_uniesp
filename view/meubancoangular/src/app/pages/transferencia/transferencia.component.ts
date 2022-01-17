@@ -33,7 +33,19 @@ export class TransferenciaComponent implements OnInit {
   enviarDados(){
     this.loading = true;
     //como possuem o mesmo nome da dados, pode ser colocado dessa forma
-    const request: IContaTransferencia = this.formGroup.value as IContaTransferencia
+    const request = {
+      origem: {
+        agencia: this.formGroup.controls.agenciaOrigem.value,
+        numeroConta: this.formGroup.controls.numeroContaOrigem.value,
+        valor: 0
+      },
+      destino: {
+        agencia: this.formGroup.controls.agenciaDestino.value,
+        numeroConta: this.formGroup.controls.numeroContaDestino.value,
+        valor: 0
+      },
+      valor: this.formGroup.controls.valor.value
+    }
     this.contaservice.transferencia(request).subscribe(valor=>{
       this.loading = false;
       Swal.fire('Feito', 'Transferência realizado com sucesso!', 'success');

@@ -27,8 +27,8 @@ export class ContaServiceService {
     return this.http.post(`${this.api}/deposito`, deposito);
   }
 
-  transferencia (transferencia: IContaTransferencia){
-    return this.http.post(`${this.api}/transferencia`, transferencia);
+  transferencia (transferencia: any){
+    return this.http.post(`${this.api}transferencia`, transferencia);
   }
 
   cadastrar (cadastro: IConta) {
